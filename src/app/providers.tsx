@@ -7,5 +7,5 @@ import {
 } from "@clerk/nextjs";
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  return <ClerkProvider>{children}</ClerkProvider>;
+  return <ClerkProvider afterSignOutUrl="/" afterMultiSessionSingleSignOutUrl="/">{children}</ClerkProvider>;
 }
