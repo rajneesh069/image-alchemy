@@ -30,6 +30,6 @@ The project should be up and running at : `http://localhost:3000`
 2. Creating navbars specific to mobile and desktop views
 3. Using ShadCn UI library and it's button and sheet components
 4. Caching mongodb connections to optimize the performance as the Next.js app runs in a serverless enviroment, i.e., at EDGE runtime.
-5.
+5. Create a transaction model and handle transactions.
 
 ## Features:
