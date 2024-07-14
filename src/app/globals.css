@@ -304,7 +304,7 @@
   }
 
   .header-nav_elements {
-    @apply mt-8 flex w-full flex-col items-start gap-5;
+    @apply mt-8 flex w-full flex-col items-start gap-5 h-[80vh] overflow-y-auto;
   }
 
   /* Search Component */
@@ -314,11 +314,11 @@
 
   /* Sidebar Component */
   .sidebar {
-    @apply hidden h-screen w-72 bg-white p-5 shadow-md shadow-purple-200/50 lg:flex;
+    @apply hidden h-screen w-72 bg-white p-5 lg:flex;
   }
 
   .sidebar-logo {
-    @apply flex items-center gap-2 md:py-2;
+    @apply flex ml-4 items-center gap-2 md:py-0;
   }
 
   .sidebar-nav {
