@@ -8,7 +8,7 @@ export interface IUser {
   firstName?: string;
   lastName?: string;
   planId?: number;
-  password: string;
+  password?: string;
   creditBalance?: number;
   createdAt?: Date;
   updatedAt?: Date;
@@ -22,11 +22,11 @@ const userSchema = new Schema({
   firstName: { type: String },
   lastName: { type: String },
   planId: { type: Number, default: 1 },
-  password: { type: String, required: true },
+  password: { type: String },
   creditBalance: { type: Number, default: 10 },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });
 
-const User = models?.image || model("User", userSchema);
+const User = models?.User || model("User", userSchema);
 export default User;
