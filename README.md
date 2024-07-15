@@ -35,7 +35,8 @@ The project should be up and running at : `http://localhost:3000`
 7. Server actions for handling database queries and form submissions, like user actions.
 8. Webhooks(using Clerk) to create/update/delete/read users from and to our database.
 9. Declaring types in a separate 'types' folder which contains index.d.ts file making the types to be available globally.
-10. 
+10. Ngrok and webhook testing on local machine.
+11. 
 
 
 ## Features:
