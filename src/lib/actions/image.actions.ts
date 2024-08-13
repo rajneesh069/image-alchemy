@@ -6,12 +6,13 @@ import { handleError } from "../utils";
 import User from "../database/models/user.model";
 import Image from "../database/models/image.model";
 import { redirect } from "next/navigation";
+import { AddImageParams, UpdateImageParams } from "@/types";
 
 
 function populateUser(query : any){
     return query.populate({
         path : "author",
-        model : "user",
+        model : User,
         select : "_id firstName lastName"
     })
 }
@@ -55,7 +56,7 @@ export async function updateImage({ image, userId, path }: UpdateImageParams) {
     );
 
     revalidatePath(path);
-    return JSON.parse(JSON.stringify(image));
+    return JSON.parse(JSON.stringify(updatedImage));
   } catch (error) {
     handleError(error);
   }

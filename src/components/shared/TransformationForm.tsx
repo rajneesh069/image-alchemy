@@ -5,9 +5,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-} from "@/components/ui/form";
+import { Form } from "@/components/ui/form";
 
 import {
   Select,
@@ -88,6 +86,7 @@ const TransformationForm = ({
     }));
 
     setNewTransformation(transformationType.config);
+    return onChangeField(imageSize.aspectRatio);
   };
 
   const onInputChangeHandler = (
@@ -105,20 +104,22 @@ const TransformationForm = ({
         },
       }));
     }, 1000);
+
+    return onChangeField(value);
   };
+  
   // TODO : Return to update credits
   const onTransformHandler = async () => {
     setIsTransforming(true);
     setTransfomationConfig(
       deepMergeObjects(newTransformation, transfomationConfig)
     );
-    
+
     setNewTransformation(null);
-    
+
     startTransition(async () => {
       await updateCredits(userId, creditFee);
     });
-
   };
 
   return (
@@ -144,7 +145,7 @@ const TransformationForm = ({
                   onSelectFieldHandler(value, field.onChange)
                 }
               >
-                <SelectTrigger className="w-[180px]">
+                <SelectTrigger className="select-field">
                   <SelectValue placeholder="Select Size" />
                 </SelectTrigger>
                 <SelectContent>
@@ -159,7 +160,7 @@ const TransformationForm = ({
           />
         )}
 
-        {(type === "remove" || (type = "recolor")) && (
+        {(type === "remove" || type == "recolor") && (
           <div className="prompt-field">
             <CustomField
               control={form.control}
@@ -225,13 +226,13 @@ const TransformationForm = ({
             )}
           />
 
-          <TransformedImage 
-          image = {image}
-          type={type}
-          title={form.getValues().title}
-          isTransforming={isTransforming}
-          setIsTransforming={setIsTransforming}
-          transformationConfig={transfomationConfig}
+          <TransformedImage
+            image={image}
+            type={type}
+            title={form.getValues().title}
+            isTransforming={isTransforming}
+            setIsTransforming={setIsTransforming}
+            transformationConfig={transfomationConfig}
           />
         </div>
 
