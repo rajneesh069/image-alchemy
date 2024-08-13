@@ -7,20 +7,12 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import {
   Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
 } from "@/components/ui/form";
 
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -36,6 +28,7 @@ import { useState, useTransition } from "react";
 import { AspectRatioKey, debounce, deepMergeObjects } from "@/lib/utils";
 import { updateCredits } from "@/lib/actions/user.actions";
 import MediaUploader from "./MediaUploader";
+import TransformedImage from "./TransformedImage";
 
 export const formSchema = z.object({
   title: z.string(),
@@ -119,12 +112,13 @@ const TransformationForm = ({
     setTransfomationConfig(
       deepMergeObjects(newTransformation, transfomationConfig)
     );
-
+    
+    setNewTransformation(null);
+    
     startTransition(async () => {
       await updateCredits(userId, creditFee);
     });
 
-    setNewTransformation(null);
   };
 
   return (
@@ -229,6 +223,15 @@ const TransformationForm = ({
                 type={type}
               />
             )}
+          />
+
+          <TransformedImage 
+          image = {image}
+          type={type}
+          title={form.getValues().title}
+          isTransforming={isTransforming}
+          setIsTransforming={setIsTransforming}
+          transformationConfig={transfomationConfig}
           />
         </div>
 
