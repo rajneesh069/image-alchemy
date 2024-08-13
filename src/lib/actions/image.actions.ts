@@ -6,7 +6,6 @@ import { handleError } from "../utils";
 import User from "../database/models/user.model";
 import Image from "../database/models/image.model";
 import { redirect } from "next/navigation";
-import { AddImageParams, UpdateImageParams } from "@/types";
 
 
 function populateUser(query : any){

@@ -4,11 +4,11 @@ const imageSchema = new Schema({
   title: { type: "String", required: true },
   transformationType: { type: "String", required: true },
   publicId: { type: String, required: true },
-  sceureUrl: { type: URL, required: true },
+  secureURL: { type: String, required: true },
   width: { type: Number },
-  innerHeight: { type: Number },
+  height: { type: Number },
   config: { type: Object },
-  transformationUrl: { type: URL },
+  transformationUrl: { type: String },
   aspectRatio: { type: String },
   color: { type: String },
   prompt: { type: String },
@@ -23,11 +23,11 @@ export interface IImage extends Document {
   title: string;
   transformationType: string;
   publicId: string;
-  secureUrl: URL;
+  secureURL: string;
   width?: number;
-  innerHeight?: number;
+  height?: number;
   config?: Record<string, any>;
-  transformationUrl?: URL;
+  transformationUrl?: string;
   aspectRatio?: string;
   color?: string;
   prompt?: string;
