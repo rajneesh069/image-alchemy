@@ -1,11 +1,13 @@
 import { Collection } from "@/components/shared/Collection";
 import { navLinks } from "@/constants";
+import { getAllImages } from "@/lib/actions/image.actions";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home({ searchParams }: SearchParamProps) {
+export default async function Home({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
   const searchQuery = (searchParams?.query as string) || "";
+  const images = await getAllImages({ page, searchQuery });
   return (
     <>
       <section className="home">
@@ -29,7 +31,12 @@ export default function Home({ searchParams }: SearchParamProps) {
       </section>
 
       <section className="sm:mt-12">
-        <Collection />
+        <Collection
+          images={images?.data}
+          hasSearch={true}
+          totalPages={images?.totalPage}
+          page={page}
+        />
       </section>
     </>
   );

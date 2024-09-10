@@ -17,15 +17,15 @@ import { formUrlQuery } from "@/lib/utils";
 
 import { Button } from "../ui/button";
 
-import  {Search}  from "./Search";
+import { Search } from "./Search";
 
 export const Collection = ({
   hasSearch = false,
-  images,
+  images = [],
   totalPages = 1,
   page,
 }: {
-  images: IImage[];
+  images?: IImage[];
   totalPages?: number;
   page: number;
   hasSearch?: boolean;
