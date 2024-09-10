@@ -24,6 +24,11 @@ pnpm run dev
 
 The project should be up and running at : `http://localhost:3000`
 
+## Features
+0. Do Generative Fill, Image Restore, Object Recolor etc.
+1. Sign in with Clerk.js using Google, GitHub or Apple.
+2. User data maintained using Webhooks from Clerk.js and Stripe in MongoDB
+3. Buy Credits using Stripe to edit more images.
 
 ## What I learned while working on this project?
 
