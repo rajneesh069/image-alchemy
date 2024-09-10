@@ -24,7 +24,6 @@ pnpm run dev
 
 The project should be up and running at : `http://localhost:3000`
 
-## Features
 
 ## What I learned while working on this project?
 
@@ -40,5 +39,15 @@ The project should be up and running at : `http://localhost:3000`
 10. Ngrok and webhook testing on local machine.
 11. Using the render feature in React hook forms to create custom fields.
 12. Integrating Cloudinary's image upload widget and setting upload presets on the Cloudinary Website.
+13. Adding Stripe as a payment gateway and understand how payments work.
+---
 
+## Tech Stack
+1. Next.js
+2. Stripe
+3. Typescript
+4. Cloudinary AI
+5. Clerk.js
+6. React Hook Form
+7. Zod
 
